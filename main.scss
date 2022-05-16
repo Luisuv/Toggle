@@ -1,0 +1,43 @@
+html {
+    margin: 0;
+    height: 100vh;
+    background: black;
+    display: grid;
+    place-content: center;
+    color: white;
+    transition: background 1s;
+    toggle-root: lightswitch;
+}
+
+h1 {
+    font-size: 5rem;
+}
+
+button {
+    font-size: 2rem;
+    padding: .5em;
+    border: none;
+    border-radius: 5px;
+    toggle-trigger: lightswitch;
+
+    &::after {
+        content: ' light';
+    }
+}
+
+html:toggle(lightswitch) {
+    background: white;
+
+    & button::after {
+        content: ' dark';
+    }
+
+    & h1 {
+        color: black;
+    }
+}
+
+button:hover,
+button:focus {
+    background: orangered;
+}
